@@ -12,7 +12,7 @@ namespace StokTakip.Modeller
         public string UrunKodu { get; set; }
         public string UrunAd { get; set; }
         public int KategoriId { get; set; } // Foreign Key to TblKategoriler
-        public int BirimId { get; set; } // Foreign Key to TblBirimler
+        public int? BirimId { get; set; } // Foreign Key to TblBirimler
         public string UrunAciklama { get; set; }
         public float MinStok { get; set; }
         public float MaksStok { get; set; }
