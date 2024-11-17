@@ -14,8 +14,7 @@ namespace StokTakip
         {
             InitializeComponent();
 
-            // Şifre alanının özelliklerini ayarla
-            txtŞifre.PasswordChar = '●'; // Şifre yazarken görünmesi gereken karakter
+            txtŞifre.PasswordChar = '●'; 
         }
 
         private string HashPassword(string password)
@@ -47,9 +46,8 @@ namespace StokTakip
 
                 if (kullanici != null)
                 {
-                    Form1 form1 = new Form1();
-                    form1.Show();
-                    this.Close();
+                    DialogResult = DialogResult
+                        .OK;
                 }
                 else
                 {

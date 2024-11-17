@@ -30,6 +30,11 @@
         {
             components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
+            dbUrunlerBindingSource = new BindingSource(components);
+            dbBirimlerBindingSource = new BindingSource(components);
+            dbKategorilerBindingSource = new BindingSource(components);
+            btnKaydet = new Button();
+            btnCikis = new Button();
             urunKoduDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             urunAdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             urunAciklamaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -40,11 +45,6 @@
             stokGirislerDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             stokCikislarDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ColSil = new DataGridViewButtonColumn();
-            dbUrunlerBindingSource = new BindingSource(components);
-            dbBirimlerBindingSource = new BindingSource(components);
-            dbKategorilerBindingSource = new BindingSource(components);
-            btnKaydet = new Button();
-            btnCikis = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dbUrunlerBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dbBirimlerBindingSource).BeginInit();
@@ -65,6 +65,38 @@
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
             dataGridView1.DataError += dataGridView1_DataError;
+            // 
+            // dbUrunlerBindingSource
+            // 
+            dbUrunlerBindingSource.DataSource = typeof(Modeller.DbUrunler);
+            // 
+            // dbBirimlerBindingSource
+            // 
+            dbBirimlerBindingSource.DataSource = typeof(Modeller.DbBirimler);
+            // 
+            // dbKategorilerBindingSource
+            // 
+            dbKategorilerBindingSource.DataSource = typeof(Modeller.DbKategoriler);
+            // 
+            // btnKaydet
+            // 
+            btnKaydet.Location = new Point(852, 418);
+            btnKaydet.Name = "btnKaydet";
+            btnKaydet.Size = new Size(139, 36);
+            btnKaydet.TabIndex = 1;
+            btnKaydet.Text = "Kaydet";
+            btnKaydet.UseVisualStyleBackColor = true;
+            btnKaydet.Click += btnKaydet_Click;
+            // 
+            // btnCikis
+            // 
+            btnCikis.Location = new Point(897, 12);
+            btnCikis.Name = "btnCikis";
+            btnCikis.Size = new Size(94, 29);
+            btnCikis.TabIndex = 2;
+            btnCikis.Text = "Çıkış";
+            btnCikis.UseVisualStyleBackColor = true;
+            btnCikis.Click += btnCikis_Click;
             // 
             // urunKoduDataGridViewTextBoxColumn
             // 
@@ -140,38 +172,8 @@
             ColSil.Name = "ColSil";
             ColSil.Resizable = DataGridViewTriState.True;
             ColSil.SortMode = DataGridViewColumnSortMode.Automatic;
-            // 
-            // dbUrunlerBindingSource
-            // 
-            dbUrunlerBindingSource.DataSource = typeof(Modeller.DbUrunler);
-            // 
-            // dbBirimlerBindingSource
-            // 
-            dbBirimlerBindingSource.DataSource = typeof(Modeller.DbBirimler);
-            // 
-            // dbKategorilerBindingSource
-            // 
-            dbKategorilerBindingSource.DataSource = typeof(Modeller.DbKategoriler);
-            // 
-            // btnKaydet
-            // 
-            btnKaydet.Location = new Point(852, 418);
-            btnKaydet.Name = "btnKaydet";
-            btnKaydet.Size = new Size(139, 36);
-            btnKaydet.TabIndex = 1;
-            btnKaydet.Text = "Kaydet";
-            btnKaydet.UseVisualStyleBackColor = true;
-            btnKaydet.Click += btnKaydet_Click;
-            // 
-            // btnCikis
-            // 
-            btnCikis.Location = new Point(897, 12);
-            btnCikis.Name = "btnCikis";
-            btnCikis.Size = new Size(94, 29);
-            btnCikis.TabIndex = 2;
-            btnCikis.Text = "Çıkış";
-            btnCikis.UseVisualStyleBackColor = true;
-            btnCikis.Click += btnCikis_Click;
+            ColSil.Text = "Sil";
+            ColSil.UseColumnTextForButtonValue = true;
             // 
             // Form1
             // 
@@ -181,7 +183,7 @@
             Controls.Add(btnCikis);
             Controls.Add(btnKaydet);
             Controls.Add(dataGridView1);
-            FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Form1";
